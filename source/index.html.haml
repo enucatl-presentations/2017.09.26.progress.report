@@ -1,0 +1,242 @@
+%section{data: {"background" => "vendor/eth-reveal-theme/images/eth-sls-background.jpg", "background-size" => "100%", "background-position" => "bottom"}}
+  %h3 Measuring water diffusion in porous materials with high-energy grating interferometry and CdTe detectors
+  %p M. Abis, M. Büchner, G. Lovrić, Z. Wang, M. Stampanoni
+  %small Institute for Biomedical Engineering, University and ETH Zürich, 8092 Zürich, Switzerland </br> Swiss Light Source, Paul Scherrer Institut, 5232 Villigen, Switzerland 
+
+%section
+  %h3 Goals
+  %ul
+    %li show a simple case for the implementation of a CdTe detector prototype
+    %li latest data not in the abstract: quantitative description of the dark-field signal for a polychromatic source
+
+%section
+  %h3 Efficiency of a 750 μm thick sensor
+  = image_tag "efficiency.png", style: "width: 100%"
+
+%section
+  %h3 The setup
+  .col-md-6
+    %ul
+      %li tube runs at 100 kVp, 6 mA
+      %li \(\pi\) shift at 45 keV
+      %li 5.4 μm pitch
+      %li 52 cm total length
+      %li <span style="font-variant: small-caps;">dectris santis 0804</span> CdTe prototype
+      %li
+        \~8% visibility
+  .col-md-6
+    = image_tag "IMG_20170907_121347.jpg", style: "width: 100%"
+
+%section
+  %h3 The detector
+  %p Prototype based on <span style="font-variant: small-caps;">santis 0804</span> CdTe from <span style="font-variant: small-caps;">dectris ltd.</span> 
+  .col-md-12
+    %ul
+      %li 75 μm pixel size
+      %li 750 μm thickness
+  .col-md-6
+    = image_tag "IMG_20170907_121325.jpg", style: "width: 100%"
+  .col-md-6
+    = image_tag "visibility_stable.png", style: "width: 100%"
+
+%section
+  %h3 Water uptake in a cement sample
+  %small see F. Yang et al., <i>Dark-field X-ray imaging of unsaturated water transport in porous materials</i>, 2014
+  .col-md-6
+    %ul
+      %li a cement cylinder is put in contact with water
+      %li the water slowly infiltrates the porous structure
+      %li water height \(\propto \sqrt{t}\)
+  .col-md-6
+    = image_tag "Figure5.gif", style: "width: 100%"
+    %p SEM scans of cement <br> (width 300 μm)
+
+%section
+  %h3 Combining the signals
+  %ul
+    %li transmission \(A\)
+    %li visibility reduction \(B\)
+    %li log ratio \(R = \log(A) / \log(B)\)
+
+%section
+  %h3 Time evolution
+  .col-md-12
+    %video
+      <source data-src="images/video.mp4" type="video/mp4" style="width: 40%;"/>
+
+%section
+  %h3 Contrast-to-noise ratio
+  .col-md-6
+    = tag :img, src: "https://github.com/Enucatl/wet-cement/raw/master/data/cnr.absorption.png"
+  .col-md-6
+    = tag :img, src: "https://github.com/Enucatl/wet-cement/raw/master/data/cnr.ratio.png"
+
+%section
+  %h3 Measuring diffusion speed
+  %p thresholding \(\rightarrow\) fraction of wet pixels
+  .col-md-12
+    = tag :img, style: "width: 50%", src: "https://github.com/Enucatl/wet-cement/raw/master/data/position.png"
+
+%section
+  %h3 Monochromatic case
+  %p dark field as a function of sphere diameter and photon energy
+  %small S. Lynch et al., <i>Interpretation of dark-field contrast and particle-size selectivity in grating interferometers</i>, 2011
+  .col-md-6{style: "font-size: 70%;"}
+    \\[
+    \B \propto \mu_d = \frac{3\pi}{\lambda^2}f |\Delta n|^2 d
+    \\begin{cases}
+    D' & \text{if } D' \leqslant 1\\[2ex]
+    \\!\begin{align}
+    & D' - \sqrt{D'^2 - 1}\\
+    & (1 + D'^{-2}/2) \\
+    & + (D'^{-1} + D'^{-3} / 4) \\
+    & \log\left(\frac{D' + \sqrt{D'^2 - 1}}{D' - \sqrt{D'^2 - 1}}\right)
+    \\end{align} & \text{otherwise}
+    \\end{cases}
+    \\]
+
+%section
+  %h3 Monochromatic case
+  %p dark field as a function of sphere diameter and photon energy
+  %small S. Lynch et al., <i>Interpretation of dark-field contrast and particle-size selectivity in grating interferometers</i>, 2011
+  .col-md-12
+    = tag :img, style: "width: 50%", src: "https://www.researchgate.net/profile/Vinay_Pai/publication/51563274/figure/fig4/AS:305732164571139@1449903636286/Fig-4.png"
+
+%section
+  %h3 Polychromatic extension
+  %p
+    \\[
+    R(\energy) = \frac{\log B}{\log A} = \frac{\mu_d}{2k\beta}
+    \\]
+  %p
+    \\[
+    R \propto \frac{\sum_\energy w(\energy)|\Delta n(\energy)|^2 \energy u(\energy)}{\sum_\energy w(\energy) \energy \beta}
+    \\]
+  %ul
+    %li \(w\) spectral weights
+    %li \(u\) conditional statement
+  .col-md-12
+    %small M. Abis et al., <i>in preparation</i>
+
+%section
+  %h3 Table-top grating interferometer with microspheres
+  .col-md-12
+    = tag :img, style: "width: 50%", src: "https://github.com/Enucatl/microspheres/raw/master/data/summary.png"
+  %small M. Abis et al., <i>in preparation</i>
+
+%section
+  %h3 Investigating lung microstructures
+  %ul
+    %li ground truth from synchrotron microtomography
+    %li quantitative data from the table-top setup on a macroscopic scale
+  .col-md-12
+    = image_tag "smoke_stitched.png", style: "width: 60%"
+  .col-md-12
+    %small G. Lovrić et al., <i>Dose optimization approach to fast X-ray microtomography of the lung alveoli</i>, 2013
+
+%section
+  %h3 Acquisition of the ground truth
+  .col-md-6
+    = image_tag "mouse_tomcat.png"
+    %ul
+      %li critical point dried lungs
+      %li tomographic scan at 21 keV
+      %li 1.1 μm effective pixel size
+      %li three mouse samples
+  .col-md-6
+    = image_tag "ko373.png"
+  .col-md-12
+    %small G. Lovrić et al., <i>Dose optimization approach to fast X-ray microtomography of the lung alveoli</i>, 2013
+
+%section
+  %h3 Microtomography and postprocessing
+  %ul
+    %li synchrotron microtomography
+    %li segmentation
+  .col-md-12
+    = image_tag "segmentation_procedure.png"
+  .col-md-12
+    %small G. Lovrić et al., <i>Automated computer-assisted quantitative analysis of intact murine lungs at the alveolar scale</i>, in press 10.1371/journal.pone.0183979
+
+%section
+  %h3 Alveoli as spheres
+  %ul
+    %li fit spheres in the lung microstructures
+    %li plot diameter distribution
+  .col-md-6
+    = image_tag "plos_thickness.png"
+  .col-md-6
+    = image_tag "size_pdf.png"
+  .col-md-12
+    %small G. Lovrić et al., <i>Automated computer-assisted quantitative analysis of intact murine lungs at the alveolar scale</i>, in press 10.1371/journal.pone.0183979
+
+%section
+  %h3 The final model
+  %p sum over the sphere size distribution times the dark field response for each spere size
+  .col-md-6
+    %p ground truth
+    = image_tag "size_pdf.png"
+  .col-md-6
+    %p dark-field response
+    = image_tag "full_summary.png"
+
+%section
+  %h3 Grating interferometry
+  .col-md-7
+    %p measure \(R\)
+    = image_tag "IMG_20170907_121347_arrow.jpg"
+  .col-md-5
+    = image_tag "WT256_LL_smoke.png"
+
+%section
+  %h3 Preliminary validation
+  .col-md-12
+    %small
+      %table
+        %thead
+          %th sample
+          %th expected
+          %th measured
+        %tbody
+          %tr
+            %td \(1\)
+            %td \(22.2\)
+            %td \(21.3 \pm 1.8\)
+          %tr
+            %td \(2\)
+            %td \(13.7\)
+            %td \(16.5 \pm 1.6\)
+          %tr
+            %td \(3\)
+            %td \(14.4\)
+            %td \(17.7 \pm 1.4\)
+  .col-md-7
+    = image_tag "size_pdf.png"
+  .col-md-5
+    %ul
+      %li sample 1 has smaller structures \(\rightarrow\) larger \(R\)
+      %li sample 2/3 similar
+      %li consistent values for the three samples
+  .col-md-12
+    %small M. Abis et al., <i>in preparation</i>
+
+%section
+  %h3 Conclusions and outlook
+  %ul
+    %li successful implementation of the <span style="font-variant: small-caps;">dectris santis 0804</span> CdTe prototype with an application to a known study
+    %li quantitative prediction of dark-field values on a polychromatic source supported by a ground truth from microtomography
+    %li more lung datasets are ready to be analyzed to increase statistics
+    %li an extension of the study is planned with access to mice with emphysema
+
+%section
+  %h3 Acknowledgements
+  %ul
+    %li <span style="font-variant: small-caps;">erc</span> grant <span style="font-variant: small-caps;">erc-2012-stg 310005-PhaseX</span>
+    %li <span style="font-variant: small-caps;">tomcat</span> beamline team
+    %li <span style="font-variant: small-caps;">kit</span> for the grating fabrication
+    %li <span style="font-variant: small-caps;">dectris ltd.</span> for lending and setting up the detector prototype
+    %li thank you for your attention
+  .col-md-5
+    = tag :img, src: "http://www.barcelonagse.eu/sites/default/files/styles/bgse_image_content_image/public/news/erc-logo.jpg?itok=v6n1YGH3"
+  .col-md-7
+    = image_tag "20160519_TOMCATstaff_0006.jpg"
