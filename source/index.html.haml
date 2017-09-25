@@ -1,81 +1,18 @@
 %section{data: {"background" => "vendor/eth-reveal-theme/images/eth-sls-background.jpg", "background-size" => "100%", "background-position" => "bottom"}}
-  %h3 Measuring water diffusion in porous materials with high-energy grating interferometry and CdTe detectors
-  %p M. Abis, M. Büchner, G. Lovrić, Z. Wang, M. Stampanoni
-  %small Institute for Biomedical Engineering, University and ETH Zürich, 8092 Zürich, Switzerland </br> Swiss Light Source, Paul Scherrer Institut, 5232 Villigen, Switzerland 
+  %h3 Dark field for polychromatic sources
 
 %section
-  %h3 Goals
+  %h3 Outline
   %ul
-    %li show a simple case for the implementation of a CdTe detector prototype
-    %li latest data not in the abstract: quantitative description of the dark-field signal for a polychromatic source
+    %li.alert.alert-success (XNPIG 2017) calculating dark field values for lung samples
+    %li.alert.alert-danger dual phase contrast with CdTe detector
 
 %section
-  %h3 Efficiency of a 750 μm thick sensor
-  = image_tag "efficiency.png", style: "width: 100%"
-
-%section
-  %h3 The setup
-  .col-md-6
-    %ul
-      %li tube runs at 100 kVp, 6 mA
-      %li \(\pi\) shift at 45 keV
-      %li 5.4 μm pitch
-      %li 52 cm total length
-      %li <span style="font-variant: small-caps;">dectris santis 0804</span> CdTe prototype
-      %li
-        \~8% visibility
-  .col-md-6
-    = image_tag "IMG_20170907_121347.jpg", style: "width: 100%"
-
-%section
-  %h3 The detector
-  %p Prototype based on <span style="font-variant: small-caps;">santis 0804</span> CdTe from <span style="font-variant: small-caps;">dectris ltd.</span> 
-  .col-md-12
-    %ul
-      %li 75 μm pixel size
-      %li 750 μm thickness
-  .col-md-6
-    = image_tag "IMG_20170907_121325.jpg", style: "width: 100%"
-  .col-md-6
-    = image_tag "visibility_stable.png", style: "width: 100%"
-
-%section
-  %h3 Water uptake in a cement sample
-  %small see F. Yang et al., <i>Dark-field X-ray imaging of unsaturated water transport in porous materials</i>, 2014
-  .col-md-6
-    %ul
-      %li a cement cylinder is put in contact with water
-      %li the water slowly infiltrates the porous structure
-      %li water height \(\propto \sqrt{t}\)
-  .col-md-6
-    = image_tag "Figure5.gif", style: "width: 100%"
-    %p SEM scans of cement <br> (width 300 μm)
-
-%section
-  %h3 Combining the signals
+  %h3 Ratio of the logarithms
   %ul
     %li transmission \(A\)
     %li visibility reduction \(B\)
-    %li log ratio \(R = \log(A) / \log(B)\)
-
-%section
-  %h3 Time evolution
-  .col-md-12
-    %video
-      <source data-src="images/video.mp4" type="video/mp4" style="width: 40%;"/>
-
-%section
-  %h3 Contrast-to-noise ratio
-  .col-md-6
-    = tag :img, src: "https://github.com/Enucatl/wet-cement/raw/master/data/cnr.absorption.png"
-  .col-md-6
-    = tag :img, src: "https://github.com/Enucatl/wet-cement/raw/master/data/cnr.ratio.png"
-
-%section
-  %h3 Measuring diffusion speed
-  %p thresholding \(\rightarrow\) fraction of wet pixels
-  .col-md-12
-    = tag :img, style: "width: 50%", src: "https://github.com/Enucatl/wet-cement/raw/master/data/position.png"
+    %li log ratio \(R = \log(B) / \log(A)\)
 
 %section
   %h3 Monochromatic case
@@ -120,8 +57,10 @@
 
 %section
   %h3 Table-top grating interferometer with microspheres
-  .col-md-12
-    = tag :img, style: "width: 50%", src: "https://github.com/Enucatl/microspheres/raw/master/data/summary.png"
+  .col-md-6
+    %p 20% volume fraction of SiO2 microspheres in glycerine
+  .col-md-6
+    = tag :img, src: "https://github.com/Enucatl/microspheres/raw/master/data/summary.png"
   %small M. Abis et al., <i>in preparation</i>
 
 %section
@@ -221,22 +160,30 @@
     %small M. Abis et al., <i>in preparation</i>
 
 %section
-  %h3 Conclusions and outlook
+  %h3 Upcoming challenges
   %ul
-    %li successful implementation of the <span style="font-variant: small-caps;">dectris santis 0804</span> CdTe prototype with an application to a known study
-    %li quantitative prediction of dark-field values on a polychromatic source supported by a ground truth from microtomography
-    %li more lung datasets are ready to be analyzed to increase statistics
-    %li an extension of the study is planned with access to mice with emphysema
+    %li the sphere fit program cannot accomodate full tomographic datasets
+    %li possible workaround: sampling, splitting
+    %li calculations take more than one day per sample (40 samples total)
 
 %section
-  %h3 Acknowledgements
+  %h3 Dual phase setup
+  %small Pushin et al. <i>Far-field interference of a neutron white beam and the applications to noninvasive phase-contrast imaging</i>
+  .col-md-6
+    %ul
+      %li G0 with 10 μm slits every 100 μm (thanks Konstantins for the super fast manufacturing!)
+      %li G1/2 phase gratings with 10-20 μm gold with 1.2 μm pitch (thanks Carolina)
+      %li tried many distance combinations but no interference observed so far
+  .col-md-6
+    = image_tag "photo_2017-09-25_22-56-10.jpg"
+
+%section
+  %h3 Troubleshooting the current setup
   %ul
-    %li <span style="font-variant: small-caps;">erc</span> grant <span style="font-variant: small-caps;">erc-2012-stg 310005-PhaseX</span>
-    %li <span style="font-variant: small-caps;">tomcat</span> beamline team
-    %li <span style="font-variant: small-caps;">kit</span> for the grating fabrication
-    %li <span style="font-variant: small-caps;">dectris ltd.</span> for lending and setting up the detector prototype
-    %li thank you for your attention
-  .col-md-5
-    = tag :img, src: "http://www.barcelonagse.eu/sites/default/files/styles/bgse_image_content_image/public/news/erc-logo.jpg?itok=v6n1YGH3"
-  .col-md-7
-    = image_tag "20160519_TOMCATstaff_0006.jpg"
+    %li G0 might not be thick enough (running at 90 kVp should ensure at least 80% absorption)
+    %li the phase gratings may not be consistent enough in their phase shift
+    %li the alignment could be so far off that it's not possible to correct with the motors (these gratings can't be aligned through laser diffraction)
+    %li trying different gratings with double the pitch at 2.4 μm also doubles the length but might be the only chance
+
+%section
+  %h3 Thank you for your attention
